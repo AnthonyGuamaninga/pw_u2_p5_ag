@@ -1,18 +1,18 @@
 <template>
   <div>
-    <img alt="Vue logo" src="./assets/logo.png">
-    <Calculadora/>
+    
+    <Pregunta/>
   </div>
 </template>
 
 <script>
 
-import Calculadora from './components/Calculadora.vue'
+import Pregunta from './components/Pregunta.vue'
 
 export default {
   name: 'App',
   components: {
-    Calculadora
+    Pregunta
     
   },
   methods:{
