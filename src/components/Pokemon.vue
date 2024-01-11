@@ -1,16 +1,18 @@
 <template>
   <div class="container">
-    <label for="">Id:</label>
-    <input v-on:keypress.enter="consumirAPI" v-model="obtenerId" type="text" />
+    <label class="idClass" for="id">Id:</label>
+    <input id="id" v-on:keypress.enter="consumirAPI(obtenerId)" v-model="obtenerId" type="text" />
     <hr />
     <div class="informacion">
       <h1>Información del pokemon</h1>
-      <label for="">Name:</label>
-      <p for=""> {{ name }} </p>
-      <label for="">Weight:</label>
-      <p for=""> {{ weight }} </p>
-      <label for="">Base Experience:</label>
-      <p for=""> {{ base_experience }} </p>
+      <label for="nameId">Name:</label>
+      <input id="nameId" type="text" v-model="name">
+      
+      <label for="weightId">Weight:</label>
+      <input id="weightId" type="text" v-model="weight">
+
+      <label for="baseId">Base Experience:</label>
+      <input id="baseId" type="text" v-model="base_experience">
     </div>
   </div>
 </template>
@@ -23,42 +25,35 @@ export default {
       name: null,
       weight: null,
       base_experience: null,
-      respuesta: null,
+      
     };
   },
-  watch: {
-    obtenerId(value, oldValue) {
-      console.log(value);
-      console.log(oldValue);
-
-      // Consumo del API
-      this.consumirAPI();
-    },
-  },
   methods: {
-    async consumirAPI() {
+    async consumirAPI(id) {
       const { name, weight, base_experience } = await fetch(
-        this.construirUrlAPI(this.obtenerId)
+        this.construirUrlAPI(id)
       ).then((respuesta) => respuesta.json());
-      console.log(name);
-      console.log(weight);
 
       this.name = name;
       this.weight = weight;
       this.base_experience = base_experience;
     },
     construirUrlAPI(id) {
-      return `https://pokeapi.co/api/v2/pokemon/${id}`;
+      return 'https://pokeapi.co/api/v2/pokemon/' + id ;
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
 .container {
   display: grid;
   align-items: center;
   justify-content: center;
+}
+.idClass{
+    color: aliceblue;
+    padding: 20px;
 }
 .informacion{
     display: grid;
@@ -67,10 +62,14 @@ export default {
     justify-content: center;
     align-items: center;
     padding-left: 20px;
-
+    border-radius: 10px;
+}
+h1{
+    padding-right: 20px;
 }
 
-p{
+
+input{
     margin-bottom: 40px;
     border: 1px solid black;
     border-radius: 10px;
@@ -78,6 +77,7 @@ p{
     width: fit-content;
     background: rgb(140, 140, 199);
     color: aliceblue;
+    
 }
 label{
     font-weight: bold;
