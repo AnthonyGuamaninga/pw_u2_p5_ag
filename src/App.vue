@@ -1,6 +1,5 @@
 <template>
   <div>
-    
     <Pregunta/>
   </div>
 </template>
