@@ -1,24 +1,19 @@
 <template>
   <div>
-    <Pokemon/>
+    <PokemonPages/>
   </div>
 </template>
 
 <script>
 
-import Pokemon from './components/Pokemon.vue'
+import PokemonPages from './pages/PokemonPage.vue'
 
 export default {
   name: 'App',
   components: {
-    Pokemon
+    PokemonPages
     
   },
-  methods:{
-    calcularValor(){
-      return 5+5*10;
-    }
-  }
 }
 </script>
 
