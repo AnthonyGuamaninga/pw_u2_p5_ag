@@ -134,45 +134,55 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 .container {
   display: grid;
   justify-content: center;
   align-items: center;
   padding: 0px 40px;
 }
+
 h1 {
   grid-column: span 3;
 }
+
 .score {
   display: flex;
   justify-content: center;
   align-items: center;
   grid-column: span 3;
 }
+
 h2 {
   padding: 0px 100px;
 }
+
 .recursos {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .boton {
   grid-column: span 3;
   margin: 20px;
 }
+
 button {
   width: 200px;
   padding: 20px;
   border: solid;
   font-weight: bold;
 }
+
 button:hover{
   background-color: burlywood;
 }
+
 .winner{
   color: blue;
 }
+
 .loser{
   color: red;
 }

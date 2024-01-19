@@ -24,12 +24,13 @@ export default {
     justify-content: center;
     align-items: center;
 }
+
 img{
     width: 200px;
     height: 200px;
 }
+
 label{
     margin: 15px;
 }
-
 </style>
